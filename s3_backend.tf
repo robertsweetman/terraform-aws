@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "your-unique-terraform-state-bucket-name"
+  bucket = "tfstate"
 
   # Prevent accidental deletion of this S3 bucket
   lifecycle {

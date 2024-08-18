@@ -7,7 +7,11 @@ terraform {
   }
 
   # We'll configure the backend later
-  # backend "s3" {}
+#   backend "s3" {
+#     bucket = "aws_s3_bucket.terraform_tfstate.backend"
+#     key    = "terraform.tfstate"
+#     region = "eu-west-2"
+#   }
 }
 
 provider "aws" {
