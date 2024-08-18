@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "tfstate-rs-${random_string.bucket_suffix}"
+  bucket = "tfstate-rs-${random_string.bucket_suffix.result}"
 
   # Prevent accidental deletion of this S3 bucket
   lifecycle {
