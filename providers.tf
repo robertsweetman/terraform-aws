@@ -6,12 +6,12 @@ terraform {
     }
   }
 
-  # We'll configure the backend later
-  # backend "s3" {
-  #   bucket = "aws_s3_bucket.terraform_state.id"
-  #   key    = "terraform.tfstate"
-  #   region = "eu-west-2"
-  # }
+  # backend state is held in S3
+  backend "s3" {
+    bucket = "aws_s3_bucket.terraform_state.id"
+    key    = "terraform.tfstate"
+    region = "eu-west-2"
+  }
 }
 
 provider "aws" {
