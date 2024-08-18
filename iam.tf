@@ -1,26 +1,27 @@
-resource "aws_iam_policy" "terraform_policy" {
-  name        = "TerraformPolicy"
-  path        = "/"
-  description = "IAM policy for Terraform operations"
+# don't need a duplicate of this
+# resource "aws_iam_policy" "terraform_policy" {
+#   name        = "TerraformPolicy"
+#   path        = "/"
+#   description = "IAM policy for Terraform operations"
 
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect = "Allow"
-        Action = [
-          "s3:*",
-          "lambda:*",
-          "iam:*",
-          "cloudwatch:*",
-          "dynamodb:*"
-          // Add other necessary services here
-        ]
-        Resource = "*"
-      }
-    ]
-  })
-}
+#   policy = jsonencode({
+#     Version = "2012-10-17"
+#     Statement = [
+#       {
+#         Effect = "Allow"
+#         Action = [
+#           "s3:*",
+#           "lambda:*",
+#           "iam:*",
+#           "cloudwatch:*",
+#           "dynamodb:*"
+#           // Add other necessary services here
+#         ]
+#         Resource = "*"
+#       }
+#     ]
+#   })
+# }
 
 # resource "aws_iam_user" "terraform_user" {
 #   name = "terraform-user"

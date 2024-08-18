@@ -18,6 +18,7 @@ provider "aws" {
   region = var.aws_region
 }
 
-resource "aws_iam_access_key" "terraform_user_key" {
-  user = aws_iam_user.terraform_user.name
-}
+# already have one of these
+# resource "aws_iam_access_key" "terraform_user_key" {
+#   user = aws_iam_user.terraform_user.name
+# }
