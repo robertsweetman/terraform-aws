@@ -8,7 +8,7 @@ terraform {
 
   # We'll configure the backend later
   # backend "s3" {
-  #   bucket = "aws_s3_bucket.terraform_tfstate.backend"
+  #   bucket = "aws_s3_bucket.terraform_state.id"
   #   key    = "terraform.tfstate"
   #   region = "eu-west-2"
   # }
