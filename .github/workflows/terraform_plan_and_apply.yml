@@ -40,20 +40,10 @@ jobs:
         name: tfplan
         path: tfplan
 
-  manual_approval:
+  terraform_apply:
     needs: terraform_plan
     runs-on: ubuntu-latest
-    
-    steps:
-    - name: Manual Approval
-      uses: trstringer/manual-approval@v1
-      with:
-        secret: ${{ github.TOKEN }}
-        approvers: robertsweetman
-
-  terraform_apply:
-    needs: manual_approval
-    runs-on: ubuntu-latest
+    environment: production
     
     steps:
     - name: Checkout code
