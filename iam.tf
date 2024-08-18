@@ -22,11 +22,11 @@ resource "aws_iam_policy" "terraform_policy" {
   })
 }
 
-resource "aws_iam_user" "terraform_user" {
-  name = "terraform-user"
-}
+# resource "aws_iam_user" "terraform_user" {
+#   name = "terraform-user"
+# }
 
-resource "aws_iam_user_policy_attachment" "terraform_user_policy" {
-  user       = aws_iam_user.terraform_user.name
-  policy_arn = aws_iam_policy.terraform_policy.arn
-}
+# resource "aws_iam_user_policy_attachment" "terraform_user_policy" {
+#   user       = aws_iam_user.terraform_user.name
+#   policy_arn = aws_iam_policy.terraform_policy.arn
+# }
