@@ -8,7 +8,7 @@ terraform {
 
   # backend state is held in S3
   backend "s3" {
-    bucket = "tfstate-rs-${random_string.bucket_suffix.result}"
+    bucket = "tfstate-rs-dza9z5b9"
     key    = "terraform.tfstate"
     region = "eu-west-2"
   }
