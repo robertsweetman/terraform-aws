@@ -9,3 +9,15 @@ variable "lambda_function_name" {
   type        = string
   default     = "rust_lambda_function"
 }
+
+variable "sender_email" {
+  description = "sender email for SES"
+  type        = string
+  default     = "robertiansweetman@gmail.com"
+}
+
+variable "recipient_email" {
+  description = "recipient email for SES"
+  type        = string
+  default     = "robertsweetman@pm.me"
+}

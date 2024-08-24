@@ -44,7 +44,9 @@ resource "aws_lambda_function" "rust_lambda" {
 
   environment {
     variables = {
-      RUST_BACKTRACE = "1"
+      RUST_BACKTRACE  = "1"
+      SENDER_EMAIL    = aws_sesv2_email_identity.sender.email
+      RECIPIENT_EMAIL = aws_sesv2_email_identity.recipient
     }
   }
 }
