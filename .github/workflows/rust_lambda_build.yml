@@ -24,13 +24,48 @@ jobs:
     - name: Install musl-tools
       run: sudo apt-get install -y musl-tools
 
+    # - name: Build
+    #   run: |
+    #     cd messenger
+    #     cargo build --release --target x86_64-unknown-linux-musl
+    #     cp ./target/x86_64-unknown-linux-musl/release/messenger ./bootstrap
+    #     zip ../rust_lambda.zip bootstrap
+    #     cd ..
+
+    - name: Debug - List contents before build
+      run: |
+        pwd
+        ls -R
+
     - name: Build
       run: |
         cd messenger
         cargo build --release --target x86_64-unknown-linux-musl
+
+    - name: Debug - List contents after build
+      run: |
+        pwd
+        ls -R
+
+    - name: Copy binary
+      run: |
+        cd messenger
         cp ./target/x86_64-unknown-linux-musl/release/messenger ./bootstrap
+
+    - name: Debug - List contents after copy
+      run: |
+        pwd
+        ls -R
+
+    - name: Create zip
+      run: |
+        cd messenger
         zip ../rust_lambda.zip bootstrap
-        cd ..
+
+    - name: Debug - List contents after zip
+      run: |
+        pwd
+        ls -R
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
