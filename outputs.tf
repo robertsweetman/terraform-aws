@@ -12,3 +12,8 @@ output "lambda_function_name" {
   description = "The name of the Lambda function"
   value       = aws_lambda_function.rust_lambda.function_name
 }
+
+output "lambda_bucket_name" {
+  description = "The name of the Lambda bucket"
+  value = aws_s3_bucket.lambda_bucket.id
+}

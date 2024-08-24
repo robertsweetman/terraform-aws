@@ -26,8 +26,10 @@ jobs:
 
     - name: Build
       run: |
+        cd messenger
         cargo build --release --target x86_64-unknown-linux-musl
-        cp ./target/x86_64-unknown-linux-musl/release/bootstrap ./bootstrap
+        cp ./target/x86_64-unknown-linux-musl/release/messenger ./bootstrap
+        cd ..
         zip rust_lambda.zip bootstrap
 
     - name: Configure AWS credentials
