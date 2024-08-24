@@ -67,6 +67,11 @@ jobs:
         pwd
         ls -R
 
+    - name: Verify zip file
+      run: |
+        pwd
+        ls -l rust_lambda.zip
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
