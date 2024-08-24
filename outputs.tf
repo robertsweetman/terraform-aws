@@ -15,5 +15,5 @@ output "lambda_function_name" {
 
 output "lambda_bucket_name" {
   description = "The name of the Lambda bucket"
-  value = aws_s3_bucket.lambda_bucket.id
+  value       = aws_s3_bucket.lambda_bucket.id
 }
