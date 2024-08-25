@@ -22,9 +22,20 @@ resource "aws_iam_role_policy_attachment" "lambda_basic" {
   role       = aws_iam_role.lambda_role.name
 }
 
+resource "random_string" "bucket_suffix" {
+  length  = 16
+  special = false
+  upper   = false
+
+  keepers = {
+    project = var.project_name
+  }
+}
+
+
 # S3 bucket to store the Lambda deployment package
 resource "aws_s3_bucket" "lambda_bucket" {
-  bucket = "rust-lambda-deployment-${random_string.bucket_suffix.result}"
+  bucket = "rust-lambda-${var.project_name}-${random_string.bucket_suffix.result}"
 }
 
 resource "random_string" "bucket_suffix" {

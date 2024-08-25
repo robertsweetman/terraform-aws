@@ -1,3 +1,9 @@
+variable "project_name" {
+  description = "name of the project"
+  type        = string
+  default     = "messenger"
+}
+
 variable "aws_region" {
   description = "The AWS region to deploy resources in"
   type        = string
