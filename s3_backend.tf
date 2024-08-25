@@ -7,12 +7,6 @@
 #   }
 # }
 
-resource "random_string" "bucket_suffix" {
-  length  = 8
-  special = false
-  upper   = false
-}
-
 data "aws_s3_bucket" "terraform_state" {
   bucket = "tfstate-rs-dza9z5b9"
 }
