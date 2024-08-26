@@ -44,21 +44,20 @@ resource "random_string" "bucket_suffix" {
   upper   = false
 }
 
-# NOTE: can only be created once the zip file exists, need to create the bucket first
-# Lambda function
-# resource "aws_lambda_function" "rust_lambda" {
-#   function_name = "rust_lambda_function"
-#   role          = aws_iam_role.lambda_role.arn
-#   handler       = "bootstrap"
-#   runtime       = "provided.al2"
-#   s3_bucket     = aws_s3_bucket.lambda_bucket.id
-#   s3_key        = "rust_lambda.zip"
+# NOTE: can only be created once the zip file exists, need to create the bucket first Lambda function
+resource "aws_lambda_function" "rust_lambda" {
+  function_name = "rust_lambda_function"
+  role          = aws_iam_role.lambda_role.arn
+  handler       = "bootstrap"
+  runtime       = "provided.al2"
+  s3_bucket     = aws_s3_bucket.lambda_bucket.id
+  s3_key        = "rust_lambda.zip"
 
-#   environment {
-#     variables = {
-#       RUST_BACKTRACE  = "1"
-#       SENDER_EMAIL    = aws_sesv2_email_identity.sender.email_identity
-#       RECIPIENT_EMAIL = aws_sesv2_email_identity.recipient.email_identity
-#     }
-#   }
-# }
+  environment {
+    variables = {
+      RUST_BACKTRACE  = "1"
+      SENDER_EMAIL    = aws_sesv2_email_identity.sender.email_identity
+      RECIPIENT_EMAIL = aws_sesv2_email_identity.recipient.email_identity
+    }
+  }
+}
