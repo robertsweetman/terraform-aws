@@ -79,10 +79,10 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
 
-#    - name: Upload to S3
-#      run: |
-#        aws s3 cp rust_lambda.zip s3://${{ secrets.LAMBDA_BUCKET_NAME }}/rust_lambda.zip
+    - name: Upload to S3
+      run: |
+        aws s3 cp rust_lambda.zip s3://${{ secrets.LAMBDA_BUCKET_NAME }}/rust_lambda.zip
 
-#    - name: Update Lambda Function
-#      run: |
-#        aws lambda update-function-code --function-name ${{ secrets.LAMBDA_FUNCTION_NAME }} --s3-bucket ${{ secrets.LAMBDA_BUCKET_NAME }} --s3-key rust_lambda.zip
+    - name: Update Lambda Function
+      run: |
+       aws lambda update-function-code --function-name ${{ secrets.LAMBDA_FUNCTION_NAME }} --s3-bucket ${{ secrets.LAMBDA_BUCKET_NAME }} --s3-key rust_lambda.zip
