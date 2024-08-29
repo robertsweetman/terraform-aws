@@ -11,3 +11,9 @@ Let's figure out from scratch how to do 'git-ops' to an AWS environment. This ne
 
 ## todo:
 
+Since this is being used as a 'test' project for another one elsewhere what's still needed is:
+
+* port to gitlab
+* aws integration
+* aws claude setup
+* put results in sharepoint or some other accessible place
