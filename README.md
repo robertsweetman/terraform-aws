@@ -17,3 +17,18 @@ Since this is being used as a 'test' project for another one elsewhere what's st
 * aws integration
 * aws claude setup
 * put results in sharepoint or some other accessible place
+
+## Bring up steps
+
+There needs to be several rounds of 'terraform apply' for this to get to a working state because of the chicken/egg issue as clearly terraform state can't be stored remotely until there's an s3 bucket to put it into. 
+
+Then you need an s3 bucket for the Lambda files to be stored in so that's another apply step that needs doing before the Lambda part is added, alongside a pipeline to upload the Rust binary as a zip. 
+
+Additionally this needs building for the correct target.
+
+1. Add secrets to github/lab
+2. create S3 bucket for backend
+3. update provider backend block
+4. create s3 bucket for lambda
+5. update lambda resources to include s3 bucket
+
